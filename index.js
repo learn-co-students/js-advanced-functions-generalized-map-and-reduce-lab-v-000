@@ -9,11 +9,14 @@ function map(array,fx){
   return newArray
 }
 
-function reduce(array,fx){
+function reduce(array,fx,startingPoint){
   var newArray = []
   var i
   for(i=0; i < array.length; i++){
+    if (startingPoint){
     newArray.push(fx(array[i]))
+    //has to return a value
+    }
   }
   return newArray
 }
