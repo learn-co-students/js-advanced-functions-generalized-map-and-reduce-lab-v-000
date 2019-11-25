@@ -9,14 +9,20 @@ function map(array,fx){
   return newArray
 }
 
-function reduce(array,fx,startingPoint){
-  var newArray = []
+function reduce(array,fx,startingPoint=undefined){
   var i
-  for(i=0; i < array.length; i++){
-    if (startingPoint){
-    newArray.push(fx(array[i]))
-    //has to return a value
-    }
+  if (startingPoint){
+      var total = startingPoint
+      i = 0
   }
-  return newArray
-}
+  else{
+    var total = array[0]
+    i = 1
+  }
+  for(i; i < array.length; i++){
+    total = fx(array[i],total)
+    //reducing the array, take one of those numbers and add it together.
+    // callbackfunction - going into argument
+  }
+  return total
+  }
