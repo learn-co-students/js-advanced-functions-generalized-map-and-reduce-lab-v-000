@@ -23,6 +23,7 @@ function reduce(array,fx,startingPoint=undefined){
     total = fx(array[i],total)
     //reducing the array, take one of those numbers and add it together.
     // callbackfunction - going into argument
+    // allowing the function to do all the work. 
   }
   return total
   }
