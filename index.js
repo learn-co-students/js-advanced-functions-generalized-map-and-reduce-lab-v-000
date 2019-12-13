@@ -9,19 +9,29 @@ function map(array, callBackFunc){
       return new_array;
 }
 
-function reduce(array, callBackFunc, startValue){
+// function reduce(array, callBackFunc, startValue){
 
-    let originalValue = null;
-
-    if(startValue == 0){
-        originalValue = 0
-    } else {
-        originalValue = startValue
-    }
+//     let originalValue = (!!startValue) ? startValue : array[0]
+//     console.log("originalValue", originalValue)
         
+//     for (let i = 0; i < array.length; i++) {
+//         if(originalValue == array[0]){
+//             i++
+//         }
+//         originalValue = callBackFunc(array[i], originalValue)
+       
+//     }
+//     // console.log("returnvalue", originalValue)
+//     return originalValue
+// }
 
-    for (let i = 0; i < array.length; i++) {
-        callBackFunc(array[i], originalValue)
+function reduce(src, cb, starting){
+    let r = (!!starting) ? starting : src[0]
+    let i = (!!starting) ? 0 : 1
+  
+    for (; i < src.length; i++) {
+      r = cb(src[i], r)
     }
-    
-}
+  
+    return r;
+  }
