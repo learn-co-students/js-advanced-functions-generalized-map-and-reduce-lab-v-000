@@ -7,13 +7,22 @@ function map(sourceArray, mapFunk) {
 };
 
 
-function reduce(src, cb, starting){
-  let r = (!!starting) ? starting : src[0]
-  let i = (!!starting) ? 0 : 1
+function reduce(sourceArray, reduceFunk, startingPoint) {
+  let memo = startingPoint || sourceArray[0];
+  !!startingPoint ? null : sourceArray.shift();
+  for (const x of sourceArray) { memo = reduceFunk(x, memo) };
+  return memo;
+};
 
-  for (; i < src.length; i++) {
-    r = cb(src[i], r)
-  }
+// Alternate solution
 
-  return r;
-}
+// function reduce(src, cb, starting){
+//   let r = (!!starting) ? starting : src[0]
+//   let i = (!!starting) ? 0 : 1
+
+//   for (; i < src.length; i++) {
+//     r = cb(src[i], r)
+//   }
+
+//   return r;
+// }
