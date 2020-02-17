@@ -6,3 +6,14 @@ const map = (arr, f) => {
   }
   return transform;
 };
+
+const reduce = (arr, f, startingPoint) => {
+  let reducedValue = (!!startingPoint) ? startingPoint : arr[0];
+  let i = (!!startingPoint) ? 0 : 1;
+
+  for (; i < arr.length; i++) {
+    reducedValue = f(arr[i], reducedValue);
+  }
+
+  return reducedValue;
+};
