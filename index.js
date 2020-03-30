@@ -1,9 +1,9 @@
 const map = (array, fn) => {
-    const new_array = []
+    const newArray = []
     for (let i = 0; i < array.length; i++) {
-        new_array.push(fn(array[i]))
+        newArray.push(fn(array[i]))
     }
-    return new_array
+    return newArray
 }
 
 const reduce = (array, fn, startingValue) => {
