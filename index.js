@@ -20,7 +20,7 @@ function reduce(sourceArray, callbackFn, startingPoint) {
 
   let returnValue;
 
-  if (startingPoint) {
+  if (startingPoint) { // None of this will work.
     returnValue = startingPoint;
   } else {
     returnValue = 0;
