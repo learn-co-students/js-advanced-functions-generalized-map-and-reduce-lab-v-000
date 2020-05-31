@@ -13,17 +13,25 @@ function map(valueArray, randomFunction) {
   return newArray;
 }
 
-function reduce(sourceArray, randomFunction, startingPoint = 0) {
-  console.log(sourceArray);
-  console.log(randomFunction);
-  console.log(startingPoint);
+function reduce(sourceArray, randomFunction, startingPoint = null) {
+  //javascript doesn't care about the number of arguments - Benjamin Aschenbrenner
+  //nil doesn't exist in js. like array[-1]
+  //console.log(sourceArray);
+  //console.log(randomFunction);
+  //console.log(startingPoint);
   var newArray = [];
 
-  for (let i = 0; i < sourceArray.length; i++) {
-    var element = sourceArray[i];
-    //console.log(randomFunction(sourceArray, startingPoint)); 
-    //randomFunction(sourceArray, startingPoint) this didn't work because I was putting in the whole array and not the element
-    randomFunction(element, startingPoint);
-    console.log(randomFunction(element, startingPoint))
+  let i;
+  let total;
+  if (startingPoint === null) {
+    i = 1;
+    total = sourceArray[0];
+  } else {
+    i = 0;
+    total = startingPoint;
   }
+  for (i; i < sourceArray.length; i++) {
+    total = randomFunction(total,sourceArray[i]);
+  }
+  return total
 }
