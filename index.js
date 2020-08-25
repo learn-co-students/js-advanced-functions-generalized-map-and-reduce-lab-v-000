@@ -7,25 +7,18 @@ function map(ary, funct){
   return ans
 }
 
-// function reduce(ary, funct, start){
-//   if (start == undefined){
-//     let ans = true
-//     ary.forEach(function(value){
-//       ans = funct(ans, value)
-//     })
-//     return ans
-//   }
-//   else {
-//     ary.forEach(function(value){
-//       start = funct(start, value)
-//     })
-//     return start
-//   }
-// }
-
-function reduce(ary, funct, start = 0){
-  ary.forEach(function(value){
-    start = funct(start, value)
-  })
-  return start
+function reduce(ary, funct, start){
+  if (start == undefined){
+    let ans = ary[0]
+    for(let i = 1; i < ary.length; i++){
+      ans = funct(ans, ary[i])
+    }
+    return ans
+  }
+  else {
+    ary.forEach(function(value){
+      start = funct(start, value)
+    })
+    return start
+  }
 }
