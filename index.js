@@ -8,7 +8,7 @@ function map(array, fn) {
 }
 
 
-function reduce(array, fn, startingPoint = 0) {
+function reduce(array, fn, startingPoint) {
   let total;
   let counter;
 
