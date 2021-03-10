@@ -28,9 +28,7 @@ function reduce(array, func, startingPoint=null) {
   (startingPoint) ? memo = startingPoint : null
 
   for (let i = 0; i < array.length; i++) {
-    // first iteration
-    // sourceArray = [1, 2, 3]
-    // memo = 1; func = 1 + memo
+
     const item = array[i];
     let result = func(item, memo)
 
@@ -43,13 +41,3 @@ function reduce(array, func, startingPoint=null) {
   }
   return memo;
 }
-// function reduce(array, func, startingPoint = null) {
-//   let memo = startingPoint;
-
-//   for (let i = 1; i < array.length; i++) {
-//     const item = array[i];
-//     const result = func(item, memo)
-//     memo = result
-//   }
-//   return memo;
-// }
