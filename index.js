@@ -9,7 +9,7 @@ function map(array, callback) {
     return newArray;
   }
   
-  function reduce(array, callback, startingPoint=0){
+  function reduce(array, callback, startingPoint){
     let newArray = (!!startingPoint) ? startingPoint : array[0]
     let i = (!!startingPoint) ? 0 : 1
   
